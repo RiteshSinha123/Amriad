@@ -154,3 +154,229 @@ footer p { color: #e3d8c9; font-size: 13px; margin-top: 5px; }
   .flip-label { font-size: 9px; }
 }
 @media (prefers-reduced-motion: reduce) { .flip-card-inner { transition: none; } }
+/* =========================================
+   AMRIAD - COMPLETE IMAGE FITTING CSS
+   ========================================= */
+
+/* 1. HOMEPAGE HERO IMAGE */
+.hero-image {
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f7f2eb;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* 2. PRODUCT FLIP CARD */
+.flip-card {
+  width: 100%;
+  height: 430px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease;
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* 3. FRONT AND BACK OF CARD */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 1px solid #e8dfd2;
+  background-color: #ffffff;
+}
+
+.flip-card-front {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 4. PRODUCT IMAGES */
+.flip-card-front img {
+  display: block;
+  width: 100%;
+  height: 270px;
+  flex-shrink: 0;
+  padding: 12px;
+  object-fit: contain;
+  object-position: center;
+  background-color: #f7f2eb;
+}
+
+/* Product information below image */
+.flip-card-front .front-info {
+  flex: 1;
+  min-height: 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 5. BACK OF FLIP CARD */
+.flip-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #fffdf9;
+  overflow-y: auto;
+}
+
+.flip-card-back img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 6. FEATURED PRODUCT IMAGES ON HOMEPAGE */
+#featuredProducts .flip-card-front img {
+  width: 100%;
+  height: 270px;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* 7. LOGO IMAGE */
+.brand img {
+  display: block;
+  width: 90px;
+  height: 58px;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Footer logo */
+.footer-brand img {
+  width: 90px;
+  height: 58px;
+  object-fit: contain;
+}
+
+/* 8. MOBILE RESPONSIVE IMAGE FITTING */
+@media (max-width: 700px) {
+  .hero-image {
+    height: 340px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .flip-card {
+    height: 390px;
+  }
+
+  .flip-card-front img {
+    height: 220px;
+    padding: 8px;
+    object-fit: contain;
+  }
+
+  #featuredProducts .flip-card-front img {
+    height: 220px;
+  }
+
+  .brand img,
+  .footer-brand img {
+    width: 72px;
+    height: 46px;
+  }
+
+  .flip-card-front .front-info {
+    padding: 10px;
+  }
+
+  .flip-card-back {
+    padding: 14px;
+  }
+}
+
+/* 9. SMALL MOBILE SCREENS */
+@media (max-width: 380px) {
+  .hero-image {
+    height: 290px;
+  }
+
+  .flip-card {
+    height: 365px;
+  }
+
+  .flip-card-front img,
+  #featuredProducts .flip-card-front img {
+    height: 190px;
+    padding: 6px;
+  }
+}
+
+/* 10. TABLET SCREENS */
+@media (min-width: 701px) and (max-width: 1024px) {
+  .hero-image {
+    height: 380px;
+  }
+
+  .flip-card-front img {
+    height: 240px;
+  }
+}
+
+/* 11. PREVENT IMAGES FROM OVERFLOWING */
+img {
+  max-width: 100%;
+}
+
+/* 12. KEEP IMAGE PROPORTIONS */
+img {
+  height: auto;
+}
+
+/* Restore fixed image heights where required */
+.hero-image img,
+.flip-card-front img,
+.brand img,
+.footer-brand img {
+  height: 100%;
+}
+
+/* Explicit logo dimensions */
+.brand img,
+.footer-brand img {
+  height: 58px;
+}
+
+@media (max-width: 700px) {
+
+  .brand img,
+  .footer-brand img {
+    height: 46px;
+  }
+}
